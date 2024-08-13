@@ -12,5 +12,6 @@ class TodoPostEvent extends PostBlocEvent{
   String title;
   String description;
   TodoPostEvent({required this.title, required this.description});
-  
+  @override
+  List<Object> get props => [title, description];
 }

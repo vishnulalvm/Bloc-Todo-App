@@ -13,9 +13,7 @@ class FetchBlocBloc extends Bloc<FetchBlocEvent, FetchBlocState> {
      emit(TodoLoadingState());
 
      try{
-      print("try chayithu");
       final todo = await rep.fetchApi();
-      print("try chayithu");
       emit(TodoLoadedState( todolist: todo));
      }catch(e) {
       emit(TodoErrorState(error: e.toString()));

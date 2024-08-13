@@ -11,14 +11,13 @@ class HomeRepository {
       final uri = Uri.parse(url);
       final response = await http.get(uri);
       if (response.statusCode == 200) {
-        print("fetch success ${response.statusCode}");
-        print(response.body);
         List json = jsonDecode(response.body)['items'];
         List<TodoModel> list = json.map((e) => TodoModel.fromJson(e)).toList();
         return list;
       }
     } catch (e) {
-      print("exceptions occured in fetching data");
+      // print("exceptions occured in fetching data");
+      throw Exception(e);
     }
     throw Exception("failed to fetch data");
   }
@@ -27,7 +26,7 @@ class HomeRepository {
     final body = {
       "title": title,
       "description": description,
-      "is_completed": true
+      "is_completed": false
     };
     const url = "https://api.nstack.in/v1/todos";
     final uri = Uri.parse(url);
@@ -40,8 +39,8 @@ class HomeRepository {
       );
 
       if (response.statusCode == 201) {
-        print("post success");
-        print(response.body);
+        print("post success hiiiiiiii");
+        // print(response.body);
       } else {
         print("post failed");
       }

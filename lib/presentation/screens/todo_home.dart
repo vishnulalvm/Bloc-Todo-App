@@ -19,7 +19,7 @@ class HomeScreens extends StatelessWidget {
       create: (context) =>
           FetchBlocBloc(HomeRepository())..add(TodoLoadedEvent()),
       child: Scaffold(
-        backgroundColor: Colors.grey.shade900,
+        backgroundColor: Color.fromARGB(255, 38, 26, 43),
         body: Padding(
           padding: const EdgeInsets.fromLTRB(16, 40, 16, 0),
           child: Column(
@@ -106,7 +106,6 @@ class HomeScreens extends StatelessWidget {
                                           fontSize: 18,
                                           height: 2,
                                         ),
-                                        
                                         children: [
                                           TextSpan(
                                             text: '${list[index].description}',
@@ -120,7 +119,7 @@ class HomeScreens extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                    subtitle: Text(""),
+                                    // subtitle: Text("${list[index].description}"),
                                     trailing: IconButton(
                                       onPressed: () {
                                         context.read<DeleteBloc>().add(
@@ -140,11 +139,8 @@ class HomeScreens extends StatelessWidget {
                                         Icons.delete,
                                       ),
                                     ),
-                                    
                                   ),
-                                  
                                 ),
-                                
                               );
                             },
                           );

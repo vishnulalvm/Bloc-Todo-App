@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 
 class CustomColor {
   static Color getColor() {
-    return Color.fromARGB(255, 255, 255, 255); // Return a custom color
+    return const Color.fromARGB(255, 255, 255, 255); // Return a custom color
   }
 }
 
